@@ -1,24 +1,36 @@
 {
   "name": "dheenai",
-  "version": "1.0.0",
-  "description": "Global CLI to talk with Dheena AI",
+  "version": "1.0.3",
+  "description": "Dheena AI is a global CLI tool for seamless terminal-based conversations.\nInteract with an advanced AI assistant directly from your command line.\nBoost productivity and get instant answers without leaving your terminal.",
+  "main": "bin/hi-dheena.js",
+  "type": "module",
+  "bin": {
+    "hi-dheena": "./bin/hi-dheena.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": {
-    "hi": "./bin/hi-dheena.js"
+  "keywords": [
+    "cli",
+    "ai",
+    "chatbot",
+    "terminal",
+    "dheenai",
+    "artificial-intelligence"
+  ],
+  "author": "Thinakaran Manokaran <thinakaran.manohar@gmail.com>",
+  "license": "ISC",
+  "homepage": "https://www.thinakaran.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thinakaranmanokaran/DheenAi"
+  },
+  "bugs": {
+    "url": "https://github.com/thinakaranmanokaran/DheenAi/issues"
   },
   "dependencies": {
     "chalk": "^5.6.2",
     "figlet": "^1.9.3",
     "gradient-string": "^3.0.0"
-  },
-  "keywords": [
-    "cli",
-    "ai",
-    "dheenai"
-  ],
-  "author": "Thinakaran Manokaran <thinakaran.manohar@gmail.com>",
-  "license": "ISC",
-  "type": "module"
+  }
 }

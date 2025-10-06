@@ -5,7 +5,7 @@ import figlet from "figlet";
 import gradient from "gradient-string";
 
 // 🎨 List of fonts to cycle
-const fonts = ['Roman', 'Rebel', 'Colossal', 'DOS Rebel'];
+const fonts = ['Rebel', 'Colossal', 'DOS Rebel', 'Roman'];
 
 // 🌈 Cycle fonts using a simple counter stored in a file
 import fs from "fs";
@@ -14,7 +14,7 @@ import path from "path";
 const counterFile = path.join(process.cwd(), ".dheenai_banner_count");
 
 // Read last counter
-let count = 0;
+let count = 1;
 try {
     if (fs.existsSync(counterFile)) {
         const saved = parseInt(fs.readFileSync(counterFile, "utf8"));
@@ -31,16 +31,35 @@ try {
 } catch (e) { /* ignore */ }
 
 // Generate banner
-const banner = figlet.textSync('DheenAI', {
+let banner = figlet.textSync('DheenAI', {
     font,
     horizontalLayout: 'default',
     verticalLayout: 'default'
 });
 
+// Get terminal width
+const terminalWidth = process.stdout.columns || 80;
+
+// Center each line
+banner = banner
+    .split("\n")
+    .map(line => {
+        const padding = Math.max(0, Math.floor((terminalWidth - line.length) / 2));
+        return " ".repeat(padding) + line;
+    })
+    .join("\n");
+
 console.log(gradient.instagram.multiline(banner));
-console.log(chalk.whiteBright("Developer: Thinakaran Manokaran"));
-console.log(chalk.whiteBright("Portfolio: https://www.thinakaran.dev"));
-console.log("\n" + chalk.cyanBright("👋 Hi! I’m DheenAi 💫. Type your message below (type 'exit' to quit):"));
+console.log(chalk.whiteBright("Developer: Thinakaran Manokaran".padStart(Math.floor((terminalWidth + "Developer: Thinakaran Manokaran".length) / 2))));
+console.log(chalk.whiteBright("Portfolio: https://www.thinakaran.dev".padStart(Math.floor((terminalWidth + "Portfolio: https://www.thinakaran.dev".length) / 2))));
+console.log(
+  "\n" + 
+  chalk.cyan("👋 Hi! I’m ") + 
+  chalk.magentaBright("DheenAi") + 
+  chalk.cyan(" 💫. Type your message below (type ") +
+  chalk.redBright("'exit'") +
+  chalk.cyan(" to quit):")
+);
 
 // CLI setup
 const rl = readline.createInterface({
