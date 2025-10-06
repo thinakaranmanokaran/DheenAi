@@ -1,0 +1,24 @@
+{
+  "name": "dheenai",
+  "version": "1.0.0",
+  "description": "Global CLI to talk with Dheena AI",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "hi": "./bin/hi-dheena.js"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "figlet": "^1.9.3",
+    "gradient-string": "^3.0.0"
+  },
+  "keywords": [
+    "cli",
+    "ai",
+    "dheenai"
+  ],
+  "author": "Thinakaran Manokaran <thinakaran.manohar@gmail.com>",
+  "license": "ISC",
+  "type": "module"
+}
