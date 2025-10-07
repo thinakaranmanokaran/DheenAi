@@ -1,11 +1,11 @@
 {
   "name": "dheenai",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Dheena AI is a global CLI tool for seamless terminal-based conversations.\nInteract with an advanced AI assistant directly from your command line.\nBoost productivity and get instant answers without leaving your terminal.",
   "main": "bin/hi-dheena.js",
   "type": "module",
   "bin": {
-    "hi-dheena": "./bin/hi-dheena.js"
+    "hi": "./bin/hi-dheena.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

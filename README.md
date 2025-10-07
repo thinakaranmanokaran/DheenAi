@@ -1,59 +1,82 @@
-# DheenAi CLI
+# 🧠 DheenAI CLI — Your Smart Terminal AI Companion
 
-**DheenAi** is a global terminal-based AI CLI tool that lets you chat with your AI assistant directly from the command line.  
-It features a colorful gradient ASCII banner, smart responses, and a friendly AI personality.
+**DheenAI** is a sleek, global **terminal-based AI assistant** that lets you chat directly from your command line. Built for productivity and fun, DheenAI features colorful ASCII art banners, a conversational personality, and instant answers — all without leaving your terminal.
+
+![DheenAI CLI Preview](./public/preview.png)
 
 ---
 
 ## 🌟 Features
 
-- Beautiful gradient ASCII banner using **Instagram-style colors**
-- Rotating fonts for the banner on each launch
-- Instant responses for queries like "What's your name?"
-- Friendly exit command (`exit`)
-- Works on any terminal (Windows, Mac, Linux)
-- Lightweight and easy to install globally via npm
+* 🎨 Dynamic **gradient ASCII banner** with Instagram-style colors
+* 🔁 **Rotating fonts** on every launch for a fresh look
+* 💬 Instant, friendly responses to common questions
+* 🧠 Connects with a hosted AI model via secure API
+* ✨ Lightweight, zero-config global CLI tool
+* 🧍 Works seamlessly across **Windows, macOS, and Linux**
+* 🚪 Easy exit command (`exit`) — clean and friendly shutdown
 
 ---
 
 ## ⚡ Installation
 
+### Global Install
+
+Install globally from npm and use anywhere:
+
 ```bash
-# Clone or download this project
-git clone https://github.com/your-username/dheenai-cli.git
-cd dheenai-cli
+npm install -g dheenai
+```
 
-# Install dependencies
-npm install
-
-# Install globally
-npm install -g .
-````
+✅ Now you can run the DheenAI CLI from any terminal.
 
 ---
 
 ## 🚀 Usage
 
 ```bash
-# Start the CLI
+# Launch DheenAI
 hi
 
-# Example interaction:
+# Example session
 🧠 Dheena > what's your name?
-🤖 My name is DheenAi 💫 — your smart AI companion!
+🤖 My name is DheenAI 💫 — your smart AI companion!
 ```
 
-* Type `exit` to quit the CLI.
+💡 Type `exit` to close the chat anytime.
 
 ---
 
-## 🎨 Developer
+## 🔍 SEO & Metadata
+
+* **Name:** DheenAI CLI
+* **Keywords:** AI CLI, terminal AI, command-line chatbot, Node.js AI, smart assistant CLI, DheenAI, Thinakaran Manokaran
+* **Description:** Chat with your personal AI assistant directly from your terminal. Lightweight, responsive, and beautifully designed for developers.
+* **Homepage:** [https://www.thinakaran.dev](https://www.thinakaran.dev)
+* **Repository:** [https://github.com/thinakaranmanokaran/DheenAi](https://github.com/thinakaranmanokaran/DheenAi)
+
+---
+
+## 👨‍💻 Developer
 
 **Author:** Thinakaran Manokaran
-**Portfolio:** [https://www.thinakaran.dev](https://www.thinakaran.dev)
+**Website:** [https://www.thinakaran.dev](https://www.thinakaran.dev)
+**GitHub:** [@thinakaranmanokaran](https://github.com/thinakaranmanokaran)
 
 ---
 
-## 📦 License
+## 📄 License
 
-This project is licensed under the **ISC License**. See [LICENSE](./LICENSE) for details.
+This project is licensed under the **ISC License**. See the [LICENSE](./LICENSE) file for details.
+
+---
+
+### 💫 Ready to Chat?
+
+After installation, simply type:
+
+```bash
+hi
+```
+
+And start your conversation with **DheenAI** — your friendly terminal companion!
