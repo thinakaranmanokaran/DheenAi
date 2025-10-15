@@ -74,4 +74,8 @@
 /* Apply globally */
 @theme {
     --font-inter: "InterTight", sans-serif;
+
+    --color-light: #f5f5f7;
+    --color-white: #ffffff;
+    --color-para: #1D1D1F;
 }

@@ -4,9 +4,11 @@ import { Outlet } from "react-router-dom";
 
 const Public = () => {
     return (
-        <div className='font-inter'>
+        <div className='font-inter bg-light'>
             <Header />
-            <Outlet />
+            <div className='pt-16'>
+                <Outlet />
+            </div>
         </div>
     )
 }
