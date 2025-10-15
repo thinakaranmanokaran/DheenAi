@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 const Public = () => {
     return (
-        <div>
+        <div className='font-inter'>
             <Header />
             <Outlet />
         </div>

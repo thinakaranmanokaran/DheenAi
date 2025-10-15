@@ -1,1 +1,77 @@
 @import "tailwindcss";
+
+/* Import InterTight font files */
+@font-face {
+    font-family: "InterTight";
+    src: url("/src/assets/fonts/inter/InterTight-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "InterTight";
+    src: url("/src/assets/fonts/inter/InterTight-ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "InterTight";
+    src: url("/src/assets/fonts/inter/InterTight-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "InterTight";
+    src: url("/src/assets/fonts/inter/InterTight-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "InterTight";
+    src: url("/src/assets/fonts/inter/InterTight-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "InterTight";
+    src: url("/src/assets/fonts/inter/InterTight-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "InterTight";
+    src: url("/src/assets/fonts/inter/InterTight-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "InterTight";
+    src: url("/src/assets/fonts/inter/InterTight-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "InterTight";
+    src: url("/src/assets/fonts/inter/InterTight-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "InterTight";
+    src: url("/src/assets/fonts/inter/InterTight-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Apply globally */
+@theme {
+    --font-inter: "InterTight", sans-serif;
+}
