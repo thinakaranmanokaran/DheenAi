@@ -1,0 +1,11 @@
+# ===============================
+# DheenAI – Robots.txt
+# Author: Thinakaran Manokaran (https://thinakaran.dev)
+# Repo: https://github.com/thinakaranmanokaran/DheenAi
+# ===============================
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://thinakaranmanokaran.github.io/DheenAi/sitemap.xml
