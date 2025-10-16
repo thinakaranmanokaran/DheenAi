@@ -2,12 +2,116 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Tailwind </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>DheenAI – Intelligent AI Chat Assistant</title>
+    <meta
+      name="description"
+      content="DheenAI is a sleek, intelligent AI chat assistant built for seamless, natural conversations. Experience smart, fast, and elegant AI responses with DheenAI."
+    />
+    <meta
+      name="keywords"
+      content="DheenAI, AI chat app, Thinakaran Manokaran, AI assistant, intelligent chat, GPT app, modern AI interface, conversational AI"
+    />
+    <meta name="author" content="Thinakaran Manokaran" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- ✅ Open Graph / Social Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DheenAI – Smart AI Chat Assistant" />
+    <meta
+      property="og:description"
+      content="Chat smarter with DheenAI — a futuristic, minimal AI chat experience designed for speed, clarity, and intelligence."
+    />
+    <meta property="og:url" content="https://thinakaranmanokaran.github.io/DheenAi/" />
+    <meta property="og:site_name" content="DheenAI" />
+    <meta id="og-image" property="og:image" content="https://thinakaranmanokaran.github.io/DheenAi/preview1.png" />
+
+    <!-- ✅ Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DheenAI – Smart AI Chat Assistant" />
+    <meta
+      name="twitter:description"
+      content="Experience elegant and intelligent AI conversations with DheenAI, built by Thinakaran Manokaran."
+    />
+    <meta id="twitter-image" name="twitter:image" content="https://thinakaranmanokaran.github.io/DheenAi/preview1.png" />
+    <meta name="twitter:creator" content="@thinakaran" />
+
+    <!-- ✅ Favicon and Icons -->
+    <link rel="icon" href="/icons/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon180.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#000000" />
+
+    <!-- ✅ JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "DheenAI",
+        "operatingSystem": "Web",
+        "applicationCategory": "ChatbotApplication",
+        "url": "https://thinakaranmanokaran.github.io/DheenAi/",
+        "author": {
+          "@type": "Person",
+          "name": "Thinakaran Manokaran",
+          "url": "https://thinakaran.dev"
+        },
+        "description": "DheenAI is an intelligent, minimal AI chat assistant built for smooth, conversational experiences.",
+        "image": "https://thinakaranmanokaran.github.io/DheenAi/preview1.png",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- ✅ Dynamic Preview Image Selection -->
+    <script>
+      (function () {
+        const previews = [
+          "https://thinakaranmanokaran.github.io/DheenAi/preview1.png",
+          "https://thinakaranmanokaran.github.io/DheenAi/preview2.png"
+        ];
+        const chosen = previews[Math.floor(Math.random() * previews.length)];
+        document.querySelector("#og-image").setAttribute("content", chosen);
+        document.querySelector("#twitter-image").setAttribute("content", chosen);
+      })();
+    </script>
+
+    <!-- ✅ Performance / PWA -->
+    <link rel="preload" as="image" href="/preview1.png" />
+    <link rel="preload" as="image" href="/preview2.png" />
+    <link rel="preload" href="/src/main.jsx" as="script" type="module" />
+
+    <!-- ✅ Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ Default OG Image Fallback -->
+    <meta property="og:image:alt" content="DheenAI – Intelligent AI Chat Interface" />
   </head>
-  <body>
+
+  <body class="">
+    <noscript>
+      <strong>DheenAI requires JavaScript to run. Please enable it in your browser.</strong>
+    </noscript>
+
     <div id="root"></div>
+
+    <!-- ✅ Main Entry -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
