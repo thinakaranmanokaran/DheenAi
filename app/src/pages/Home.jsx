@@ -57,6 +57,12 @@ const Home = () => {
         });
     }, [messages]);
 
+    // Delete now Messages
+    function clearMessages() {
+        localStorage.removeItem("dheenai_chat");
+        window.location.reload();
+    }
+
     const handleSend = async () => {
         if (!text.trim()) return;
 
@@ -126,16 +132,16 @@ const Home = () => {
 
     return (
         <div className="flex justify-center py-4 items-center min-h-[calc(100vh-64px)]">
-            <div className="w-3/5 border-x border-x-black/20 min-h-[calc(100vh-100px)] h-full flex flex-col">
+            <div className="w-full md:w-3/5 md:border-x border-x-black/20 min-h-[calc(100vh-100px)] h-full flex flex-col">
                 {
                     messages.length > 0 ?
-                        <h1 className="text-5xl top-16 bg-light w-full shadow-md mt-10 shadow-light sticky text-center py-4">Welcome to DheenAI</h1> :
-                        <h1 className="text-6xl justify-center  font-bold tracking-tight flex items-center h-[calc(80vh-64px)]"><span className="font-normal pr-2">Welcome to </span>DheenAI</h1>
+                        <h1 className="text-3xl md:text-5xl top-0 md:top-16 bg-light w-full shadow-md md:mt-10 shadow-light sticky text-center py-4" onClick={clearMessages}>Welcome to DheenAI</h1> :
+                        <h1 className="text-4xl md:text-6xl justify-center  font-bold tracking-tight flex items-center h-[calc(80vh-64px)]"><span className="font-normal pr-2">Welcome to </span>DheenAI</h1>
 
                 }
 
                 {/* Chat Section */}
-                <div ref={chatRef} className="flex-1 mt-4 px-8 space-y-4 pb-32">
+                <div ref={chatRef} className="flex-1 mt-4 px-2 md:px-8 space-y-4 pb-32">
                     {messages.map((msg, i) => (
                         <div
                             key={i}
@@ -151,7 +157,7 @@ const Home = () => {
                                 </button>
                             )}
                             <div
-                                className={`px-5 py-3 rounded-2xl max-w-[60%] shadow-sm ${msg.sender === "user"
+                                className={`px-5 py-3 rounded-2xl max-w-[80%] md:max-w-[60%] shadow-sm ${msg.sender === "user"
                                     ? "bg-black text-white rounded-br-none"
                                     : msg.isError
                                         ? "bg-red-50 text-red-600 border border-red-300 rounded-bl-none"
@@ -173,8 +179,8 @@ const Home = () => {
                 </div>
 
                 {/* Input Bar */}
-                <div className="fixed min-h-16 flex items-center bottom-0 z-20 pb-4 w-full left-0 bg-light justify-center">
-                    <div className="relative flex items-center w-3/5">
+                <div className="fixed min-h-16 flex items-center bottom-0 z-20 pb-4 w-full left-0 bg-light justify-center pt-2 md:pt-0">
+                    <div className="relative flex items-center w-full mx-2 md:mx-0 md:w-3/5">
                         <span
                             ref={measureRef}
                             className="absolute left-8 invisible whitespace-pre font-sans text-base px-8"

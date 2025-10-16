@@ -6,7 +6,7 @@ const Public = () => {
     return (
         <div className='font-inter bg-light'>
             <Header />
-            <div className='pt-16'>
+            <div className='md:pt-16'>
                 <Outlet />
             </div>
         </div>
