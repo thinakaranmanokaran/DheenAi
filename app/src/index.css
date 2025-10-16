@@ -79,3 +79,19 @@
     --color-white: #ffffff;
     --color-para: #1D1D1F;
 }
+
+body {
+    background-color: #f5f5f7;
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE & Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}

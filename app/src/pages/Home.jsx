@@ -37,32 +37,58 @@ const Home = () => {
         const userMsg = { sender: "user", text };
         setText("");
 
-        // Add user message + placeholder AI message once
+        // Add user message + placeholder AI message
         setMessages((prev) => [...prev, userMsg, { sender: "ai", text: "Thinking..." }]);
 
         try {
             const proxy = "https://api.allorigins.win/get?url=";
-            const api = `https://dheenai.onrender.com/?text=${encodeURIComponent(
-                userMsg.text
-            )}`;
-            const res = await fetch(proxy + encodeURIComponent(api));
-            const data = await res.json();
+            const api = `https://dheenai.onrender.com/?text=${encodeURIComponent(userMsg.text)}`;
+            const response = await fetch(proxy + encodeURIComponent(api));
 
-            // Replace the "Thinking..." message with the real one
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            // Handle missing or malformed data
+            if (!data?.contents) {
+                throw new Error("Empty or invalid response from DheenAI.");
+            }
+
+            // Replace "Thinking..." with real AI response
             setMessages((prev) => {
                 const updated = [...prev];
                 updated[updated.length - 1] = {
                     sender: "ai",
-                    text: data.contents || "No response.",
+                    text: data.contents,
+                    isError: false,
                 };
                 return updated;
             });
+
         } catch (err) {
+            console.error("DheenAI Error:", err);
+
+            // User-friendly message mapping
+            let friendlyMessage = "⚠️ Something went wrong. Please try again.";
+
+            if (err.message.includes("408")) {
+                friendlyMessage = "⏳ The server took too long to respond. Please try again in a moment.";
+            } else if (err.message.includes("Failed to fetch")) {
+                friendlyMessage = "🌐 Network error — check your internet or try again.";
+            } else if (err.message.includes("500")) {
+                friendlyMessage = "💥 Server error — DheenAI might be down.";
+            } else if (err.message.includes("CORS")) {
+                friendlyMessage = "🚫 CORS issue — please refresh or try without proxy.";
+            }
+
             setMessages((prev) => {
                 const updated = [...prev];
                 updated[updated.length - 1] = {
                     sender: "ai",
-                    text: "⚠️ Error connecting to DheenAI.",
+                    text: friendlyMessage + `\n\n(Details: ${err.message})`,
+                    isError: true,
                 };
                 return updated;
             });
@@ -76,9 +102,9 @@ const Home = () => {
     };
 
     return (
-        <div className="flex justify-center py-4 items-center h-screen">
+        <div className="flex justify-center py-4 items-center h-[calc(100vh-64px)]">
             <div className="w-3/5 border-x border-x-black/20 h-full flex flex-col">
-                <h1 className="text-5xl mt-20 text-center mb-10">Welcome to DheenAI</h1>
+                <h1 className="text-5xl top-0 sticky text-center my-4">Welcome to DheenAI</h1>
 
                 {/* Chat Section */}
                 <div ref={chatRef} className="flex-1 overflow-y-auto px-8 space-y-4 pb-32">
@@ -90,9 +116,11 @@ const Home = () => {
                         >
                             {msg.sender === "user" && <button className="text-xl transition-all duration-300 mx-1 hover:bg-black/10 h-fit p-2 rounded-xl cursor-pointer group-hover:block hidden " onClick={() => handleCopy(msg.text)}>{copyIcon ? <TbCopyCheckFilled /> : <TbCopy />}</button>}
                             <div
-                                className={`px-5 py-3 rounded-2xl max-w-[75%] shadow-sm ${msg.sender === "user"
+                                className={`px-5 py-3 rounded-2xl max-w-[60%] shadow-sm ${msg.sender === "user"
                                     ? "bg-black text-white rounded-br-none"
-                                    : "bg-white text-black rounded-bl-none"
+                                    : msg.isError
+                                        ? "bg-red-50 text-red-600 border border-red-300 rounded-bl-none"
+                                        : "bg-white text-black rounded-bl-none"
                                     }`}
                             >
                                 {msg.text}
@@ -120,7 +148,7 @@ const Home = () => {
                             type="text"
                             className="w-full  px-8 border rounded-full min-h-16 focus:outline-none"
                             placeholder="Type something..."
-                        /> 
+                        />
                         {/* caret-transparent */}
                         <button
                             onClick={handleSend}
