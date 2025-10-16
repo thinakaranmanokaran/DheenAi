@@ -28,6 +28,21 @@ const Home = () => {
         }
     }, [messages]);
 
+    // Delete chat history older than 7 days
+    useEffect(() => {
+        const saved = localStorage.getItem("dheenai_chat");
+        if (saved) {
+            const parsed = JSON.parse(saved);
+            const now = new Date().getTime();
+            const sevenDays = 7 * 24 * 60 * 60 * 1000;
+            const filtered = parsed.filter(msg => now - (msg.timestamp || now) < sevenDays);
+            if (filtered.length !== parsed.length) {
+                localStorage.setItem("dheenai_chat", JSON.stringify(filtered));
+                setMessages(filtered);
+            }
+        }
+    }, []);
+
     useEffect(() => {
         if (!measureRef.current) return;
         const width = measureRef.current.offsetWidth;
@@ -110,12 +125,17 @@ const Home = () => {
     };
 
     return (
-        <div className="flex justify-center py-4 items-center h-[calc(100vh-64px)]">
-            <div className="w-3/5 border-x border-x-black/20 h-full flex flex-col">
-                <h1 className="text-5xl top-0 sticky text-center my-4">Welcome to DheenAI</h1>
+        <div className="flex justify-center py-4 items-center min-h-[calc(100vh-64px)]">
+            <div className="w-3/5 border-x border-x-black/20 min-h-[calc(100vh-100px)] h-full flex flex-col">
+                {
+                    messages.length > 0 ?
+                        <h1 className="text-5xl top-16 bg-light w-full shadow-md mt-10 shadow-light sticky text-center py-4">Welcome to DheenAI</h1> :
+                        <h1 className="text-6xl justify-center  font-bold tracking-tight flex items-center h-[calc(80vh-64px)]"><span className="font-normal pr-2">Welcome to </span>DheenAI</h1>
+
+                }
 
                 {/* Chat Section */}
-                <div ref={chatRef} className="flex-1 overflow-y-auto px-8 space-y-4 pb-32">
+                <div ref={chatRef} className="flex-1 mt-4 px-8 space-y-4 pb-32">
                     {messages.map((msg, i) => (
                         <div
                             key={i}
@@ -132,10 +152,10 @@ const Home = () => {
                             )}
                             <div
                                 className={`px-5 py-3 rounded-2xl max-w-[60%] shadow-sm ${msg.sender === "user"
-                                        ? "bg-black text-white rounded-br-none"
-                                        : msg.isError
-                                            ? "bg-red-50 text-red-600 border border-red-300 rounded-bl-none"
-                                            : "bg-white text-black rounded-bl-none"
+                                    ? "bg-black text-white rounded-br-none"
+                                    : msg.isError
+                                        ? "bg-red-50 text-red-600 border border-red-300 rounded-bl-none"
+                                        : "bg-white text-black rounded-bl-none"
                                     }`}
                             >
                                 {msg.text}
