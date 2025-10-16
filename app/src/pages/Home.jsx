@@ -135,7 +135,7 @@ const Home = () => {
             <div className="w-full md:w-3/5 md:border-x border-x-black/20 min-h-[calc(100vh-100px)] h-full flex flex-col">
                 {
                     messages.length > 0 ?
-                        <h1 className="text-3xl md:text-5xl top-0 md:top-16 bg-light w-full shadow-md md:mt-10 shadow-light sticky text-center py-4" onClick={clearMessages}>Welcome to DheenAI</h1> :
+                        <><h1 className="text-3xl md:text-5xl top-0 md:top-16 bg-light w-full shadow-md md:mt-10 md:hidden shadow-light sticky text-center py-4" onClick={clearMessages}>Welcome to DheenAI</h1><h1 className="text-3xl md:text-5xl top-0 md:top-16 bg-light w-full shadow-md md:mt-10 hidden md:block shadow-light sticky text-center py-4">Welcome to DheenAI</h1></> :
                         <h1 className="text-4xl md:text-6xl justify-center  font-bold tracking-tight flex items-center h-[calc(80vh-64px)]"><span className="font-normal pr-2">Welcome to </span>DheenAI</h1>
 
                 }
