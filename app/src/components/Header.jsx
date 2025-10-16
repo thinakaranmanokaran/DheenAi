@@ -3,9 +3,10 @@ import React from 'react'
 const Header = () => {
 
     // Delete now Messages
-    const clearMessages = () => {
+    function clearMessages() {
         localStorage.removeItem("dheenai_chat");
-        setMessages([]);
+        window.location.reload();
+        
     }
 
     return (
