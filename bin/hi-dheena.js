@@ -93,7 +93,7 @@ rl.on("line", async (line) => {
     const loader = showLoading();
 
     try {
-        const url = `https://dheenai.onrender.com/?text=${encodeURIComponent(query)}`;
+        const url = `https://ai-bl64.onrender.com/?text=${encodeURIComponent(query)}`;
         const res = await fetch(url);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.text();

@@ -74,7 +74,7 @@ const Home = () => {
 
         try {
             const proxy = "https://api.allorigins.win/get?url=";
-            const api = `https://dheenai.onrender.com/?text=${encodeURIComponent(userMsg.text)}`;
+            const api = `https://ai-bl64.onrender.com/?text=${encodeURIComponent(userMsg.text)}`;
             const response = await fetch(proxy + encodeURIComponent(api));
 
             if (!response.ok) {
